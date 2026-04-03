@@ -26,11 +26,18 @@ jobs:
       - name: Install Anypoint CLI
         run: npm install -g anypoint-cli-v4
         
-      - name: Print Account Details
+      - name: Config Organization
         run: >
-          anypoint-cli-v4 account:user:describe 
-          --client_id 80d66a6539aa4276b43d6125695d42a6
-          --client_secret 34750839f3654308A67a6fA85a8f7a1a
-          --organization 29fcc50f-0380-4b40-ad8b-d7773ae5398f
-          --environment Sandbox
-          -o json
+          anypoint-cli-v4 conf organization 29fcc50f-0380-4b40-ad8b-d7773ae5398f
+
+      - name: Config Client Id
+        run: >
+          anypoint-cli-v4 conf client_id 80d66a6539aa4276b43d6125695d42a6
+
+      - name: Config Client Secret
+        run: >
+          anypoint-cli-v4 conf client_secret 34750839f3654308A67a6fA85a8f7a1a
+
+      - name: List All Mule Apps
+        run: >
+          anypoint-cli-v4 runtime-mgr:application:list --environment Sandbox
