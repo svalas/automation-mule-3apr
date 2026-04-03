@@ -28,16 +28,24 @@ jobs:
         
       - name: Config Organization
         run: >
-          anypoint-cli-v4 conf organization 29fcc50f-0380-4b40-ad8b-d7773ae5398f
+          anypoint-cli-v4 conf organization 27127d7e-518e-48e7-b7e3-0dbf2c5475bf
 
       - name: Config Client Id
         run: >
-          anypoint-cli-v4 conf client_id 80d66a6539aa4276b43d6125695d42a6
+          anypoint-cli-v4 conf client_id b23364a06f0443ea806b61179a810a2c
 
       - name: Config Client Secret
         run: >
-          anypoint-cli-v4 conf client_secret 34750839f3654308A67a6fA85a8f7a1a
+          anypoint-cli-v4 conf client_secret 4B8b2070986E4a32A6c2E6c89770139E
+
+      - name: Config Environment
+        run: >
+          anypoint-cli-v4 conf environment Sandbox
 
       - name: List All Mule Apps
         run: >
           anypoint-cli-v4 runtime-mgr:application:list --environment Sandbox
+
+      - name: Lists all assets for our Organization
+        run: >
+          anypoint-cli-v4 exchange:asset:list --organizationId 27127d7e-518e-48e7-b7e3-0dbf2c5475bf --output json
